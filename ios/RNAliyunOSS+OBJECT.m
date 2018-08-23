@@ -133,7 +133,6 @@ RCT_REMAP_METHOD(presignConstrainURL, bucketName:(NSString*)bucketName withObjec
     } else {
         reject(@"error",@"presign error",task.error);
     }
-    return nil;
 }
 
 @end

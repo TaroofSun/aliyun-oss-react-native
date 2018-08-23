@@ -73,6 +73,13 @@ export default AliyunOSS = {
     asyncUpload(bucketName, objectKey, filepath,options) {
         return RNAliyunOSS.asyncUpload(bucketName, objectKey, filepath,options);
     },
+    
+    /**
+     * presignConstrainURL
+     */
+    presignConstrainURL(bucketName, objectKey) {
+        return RNAliyunOSS.presignConstrainURL(bucketName, objectKey);
+    },
 
      /**
      * Asynchronously 

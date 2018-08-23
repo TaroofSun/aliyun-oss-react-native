@@ -180,12 +180,12 @@ public class AliyunObjectManager {
 
 
     /**
-     * asyncPresignConstrainURL
+     * presignConstrainURL
      * @param bucketName
      * @param objectKey
      * @param promise
      */
-    public void asyncPresignConstrainURL(String bucketName, String objectKey, final Promise promise) {
+    public void presignConstrainURL(String bucketName, String objectKey, final Promise promise) {
         try {
             String url = mOSS.presignConstrainedObjectURL(bucketName,objectKey, 30 * 60)
             promise.resolve(url);

@@ -121,9 +121,9 @@ RCT_REMAP_METHOD(asyncDeleteObject, bucketName:(NSString*)bucketName withObjectK
 }
 
 /*
- asyncPresignConstrainURL
+ presignConstrainURL
  */
-RCT_REMAP_METHOD(asyncPresignConstrainURL, bucketName:(NSString*)bucketName withObjectKey:(NSString*)objectKey resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+RCT_REMAP_METHOD(presignConstrainURL, bucketName:(NSString*)bucketName withObjectKey:(NSString*)objectKey resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
 
     OSSTask * presignTask = [self.client presignConstrainURLWithBucketName:bucketName
                                                              withObjectKey:objectKey

@@ -146,13 +146,6 @@ public class AliyunDownloadManager {
             // 本地异常如网络异常等
             e.printStackTrace();
             promise.reject(e);
-        } catch (ServiceException e) {
-            // 服务异常
-            Log.e("ErrorCode", e.getErrorCode());
-            Log.e("RequestId", e.getRequestId());
-            Log.e("HostId", e.getHostId());
-            Log.e("RawMessage", e.getRawMessage());
-            promise.reject(e);
         }
     }
 }

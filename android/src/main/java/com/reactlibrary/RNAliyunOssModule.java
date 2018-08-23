@@ -274,6 +274,20 @@ public class RNAliyunOssModule extends ReactContextBaseJavaModule {
     public void asyncDownload(String bucketName, String ossFile, String updateDate,ReadableMap options, final Promise promise) {
         mDownloadManager.asyncDownload(getReactApplicationContext(), bucketName, ossFile, updateDate, options, promise);
     }
+
+     /**
+     * asyncDownload and image process ReactMethod
+     * @param bucketName
+     * @param ossFile
+     * @param updateDate
+     * @param options
+     * @param promise
+     */
+    @ReactMethod
+    public void presignConstrainURL(String bucketName, String objectKey, final Promise promise) {
+        mDownloadManager.presignConstrainURL(bucketName, objectKey, promise);
+    }
+
     /**
      * createBucket ReactMethod
      * @param bucketName

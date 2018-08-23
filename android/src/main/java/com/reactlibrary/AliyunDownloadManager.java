@@ -140,7 +140,7 @@ public class AliyunDownloadManager {
      */
     public void presignConstrainURL(String bucketName, String objectKey, final Promise promise) {
         try {
-            String url = mOSS.presignConstrainedObjectURL(bucketName,objectKey, 30 * 60)
+            String url = mOSS.presignConstrainedObjectURL(bucketName,objectKey, 30 * 60);
             promise.resolve(url);
         } catch (ClientException e) {
             // 本地异常如网络异常等

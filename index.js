@@ -74,13 +74,6 @@ export default AliyunOSS = {
         return RNAliyunOSS.asyncUpload(bucketName, objectKey, filepath,options);
     },
     
-    /**
-     * presignConstrainURL
-     */
-    presignConstrainURL(bucketName, objectKey) {
-        return RNAliyunOSS.presignConstrainURL(bucketName, objectKey);
-    },
-
      /**
      * Asynchronously 
      */
@@ -127,6 +120,13 @@ export default AliyunOSS = {
      */
     asyncDownload(bucketName, objectKey, filepath='',options = imageXOssProcess) {
         return RNAliyunOSS.asyncDownload(bucketName, objectKey, filepath,options);
+    },
+    
+    /**
+     * presignConstrainURL
+     */
+    presignConstrainURL(bucketName, objectKey) {
+        return RNAliyunOSS.presignConstrainURL(bucketName, objectKey);
     },
     
     /*

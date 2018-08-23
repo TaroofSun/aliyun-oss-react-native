@@ -62,4 +62,19 @@ RCT_REMAP_METHOD(asyncDownload, asyncDownloadWithBucketName:(NSString *)bucketNa
     }];
 }
 
+/*
+ presignConstrainURL
+ */
+RCT_REMAP_METHOD(presignConstrainURL, presignConstrainURLWithBucketName:(NSString*)bucketName objectKey:(NSString*)objectKey resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+    
+    OSSTask * task = [self.client presignConstrainURLWithBucketName:bucketName
+                                                      withObjectKey:objectKey
+                                             withExpirationInterval:30 * 60];
+    if (!task.error) {
+        resolve(task.result);
+    } else {
+        reject(@"error",@"presign error",task.error);
+    }
+}
+
 @end

@@ -123,19 +123,18 @@ RCT_REMAP_METHOD(asyncDeleteObject, bucketName:(NSString*)bucketName withObjectK
 /*
  asyncPresignConstrainURL
  */
-RCT_REMAP_METHOD(asyncPresignConstrainURL, bucketName:(NSString*)bucketName withObjectKey:(NSString*)objectKey withExpirationInterval:(NSTimeInterval)interval resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+RCT_REMAP_METHOD(asyncPresignConstrainURL, bucketName:(NSString*)bucketName withObjectKey:(NSString*)objectKey resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
 
     OSSTask * presignTask = [self.client presignConstrainURLWithBucketName:bucketName
-                                                            withObjectKey:objectKey
-                                                   withExpirationInterval:interval];
-    [presignTask continueWithBlock:^id(OSSTask *task) {
-        if (!task.error) {
-            resolve(task.result);
-        } else {
-            reject(@"error",@"delete error",task.error);
-        }
-        return nil;
-    }];
+                                                             withObjectKey:objectKey
+                                                    withExpirationInterval:30 * 60];
+    
+    if (!task.error) {
+        resolve(task.result);
+    } else {
+        reject(@"error",@"presign error",task.error);
+    }
+    return nil;
 }
 
 @end

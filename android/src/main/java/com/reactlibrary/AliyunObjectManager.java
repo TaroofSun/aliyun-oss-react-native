@@ -177,4 +177,29 @@ public class AliyunObjectManager {
             }
         });
     }
+
+
+    /**
+     * asyncPresignConstrainURL
+     * @param bucketName
+     * @param objectKey
+     * @param promise
+     */
+    public void asyncPresignConstrainURL(String bucketName, String objectKey, final Promise promise) {
+        try {
+            String url = mOSS.presignConstrainedObjectURL(bucketName,objectKey, 30 * 60)
+            promise.resolve(url);
+        } catch (ClientException e) {
+            // 本地异常如网络异常等
+            e.printStackTrace();
+            promise.reject(e);
+        } catch (ServiceException e) {
+            // 服务异常
+            Log.e("ErrorCode", e.getErrorCode());
+            Log.e("RequestId", e.getRequestId());
+            Log.e("HostId", e.getHostId());
+            Log.e("RawMessage", e.getRawMessage());
+            promise.reject(e);
+        }
+    }
 }

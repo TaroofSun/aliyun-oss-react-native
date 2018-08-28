@@ -59,7 +59,7 @@ public class AliyunDownloadManager {
                         "/ImgCache/" +
                         System.currentTimeMillis() +
                         ".jpg";
-                if(filePath != null && filePath.length > 0){
+                if(filePath != null && filePath.length() > 0){
                     localImgURL = filePath + ossFile;
                 }
                 Log.d("localImgURL", localImgURL);

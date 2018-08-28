@@ -35,7 +35,8 @@ public class AliyunDownloadManager {
         mOSS = oss;
     }
 
-    public void asyncDownload(final ReactContext context,String bucketName, String ossFile, String filePath, ReadableMap options, final Promise promise) {
+    public void asyncDownload(final ReactContext context,String bucketName,final String ossFile, final String filePath
+, ReadableMap options, final Promise promise) {
         GetObjectRequest get = new GetObjectRequest(bucketName, ossFile);
 
         String xOssPositon = options.getString("x-oss-process");

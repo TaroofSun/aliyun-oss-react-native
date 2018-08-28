@@ -271,8 +271,8 @@ public class RNAliyunOssModule extends ReactContextBaseJavaModule {
      * @param promise
      */
     @ReactMethod
-    public void asyncDownload(String bucketName, String ossFile, String updateDate,ReadableMap options, final Promise promise) {
-        mDownloadManager.asyncDownload(getReactApplicationContext(), bucketName, ossFile, updateDate, options, promise);
+    public void asyncDownload(String bucketName, String ossFile, String filePath,ReadableMap options, final Promise promise) {
+        mDownloadManager.asyncDownload(getReactApplicationContext(), bucketName, ossFile, filePath, options, promise);
     }
 
      /**

@@ -35,7 +35,7 @@ public class AliyunDownloadManager {
         mOSS = oss;
     }
 
-    public void asyncDownload(final ReactContext context,String bucketName, String ossFile, String updateDate, ReadableMap options, final Promise promise) {
+    public void asyncDownload(final ReactContext context,String bucketName, String ossFile, String filePath, ReadableMap options, final Promise promise) {
         GetObjectRequest get = new GetObjectRequest(bucketName, ossFile);
 
         String xOssPositon = options.getString("x-oss-process");
@@ -59,6 +59,9 @@ public class AliyunDownloadManager {
                         "/ImgCache/" +
                         System.currentTimeMillis() +
                         ".jpg";
+                if(filePath != null && filePath.length > 0){
+                    localImgURL = filePath + ossFile;
+                }
                 Log.d("localImgURL", localImgURL);
                 File cacheFile = new File(localImgURL);
                 if (!cacheFile.exists()) {

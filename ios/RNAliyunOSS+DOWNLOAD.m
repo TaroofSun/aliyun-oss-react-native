@@ -25,7 +25,7 @@ RCT_REMAP_METHOD(asyncDownload, asyncDownloadWithBucketName:(NSString *)bucketNa
     
     //图片处理情况
     NSString *xOssProcess = [RCTConvert NSString:options[@"x-oss-process"]];
-    if (xOssProcess && ![xOssProcess oss_isNotEmpty]) {
+    if (xOssProcess && [xOssProcess oss_isNotEmpty]) {
         get.xOssProcess = xOssProcess;
     }
     

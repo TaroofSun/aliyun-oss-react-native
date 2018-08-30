@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.aliyun.rnoss;
 
 import android.content.Context;
 import android.util.Log;
@@ -16,7 +16,7 @@ import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
 import com.alibaba.sdk.android.oss.common.utils.IOUtils;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
-import com.reactlibrary.utils.ConfigUtils;
+import com.aliyun.rnoss.utils.ConfigUtils;
 
 import org.json.JSONObject;
 

@@ -1,4 +1,4 @@
-package com.reactlibrary.utils;
+package com.aliyun.rnoss.utils;
 
 import android.app.Activity;
 import android.content.ContentResolver;

@@ -1,9 +1,11 @@
 package com.reactlibrary.utils;
 
+import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
-import android.os.Environment;
-import android.text.TextUtils;
+import android.provider.MediaStore;
 
 import java.io.File;
 import java.io.FileOutputStream;

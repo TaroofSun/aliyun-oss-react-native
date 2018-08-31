@@ -41,7 +41,9 @@ public class AliyunDownloadManager {
 
         String xOssPositon = options.getString("x-oss-process");
         //process image
-        get.setxOssProcess(xOssPositon);
+        if(xOssPositon != null && xOssPositon.length() > 0){
+            get.setxOssProcess(xOssPositon);
+        }
 
         OSSAsyncTask task = mOSS.asyncGetObject(get, new OSSCompletedCallback<GetObjectRequest, GetObjectResult>() {
             @Override

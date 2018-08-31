@@ -10,13 +10,13 @@ import com.alibaba.sdk.android.oss.common.OSSConstants;
 import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSCustomSignerCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSFederationCredentialProvider;
-import com.alibaba.sdk.android.oss.common.auth.OSSPlainTextAKSKCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSFederationToken;
+import com.alibaba.sdk.android.oss.common.auth.OSSPlainTextAKSKCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
 import com.alibaba.sdk.android.oss.common.utils.IOUtils;
-import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.ReadableMap;
 import com.aliyun.rnoss.utils.ConfigUtils;
+import com.aliyun.rnoss.utils.OssUtils;
+import com.facebook.react.bridge.ReadableMap;
 
 import org.json.JSONObject;
 
@@ -71,6 +71,7 @@ public class AliyunAuthManager {
         mOSS = new OSSClient(mContext, endPoint, credentialProvider, conf);
         Log.d("AliyunOSS", "OSS initWithSigner ok!");
         mAuthListener.onAuthFinished(mOSS);
+        OssUtils.oss = mOSS;
     }
 
     /**
@@ -92,6 +93,7 @@ public class AliyunAuthManager {
         mOSS = new OSSClient(mContext, endPoint, credentialProvider, conf);
         Log.d("AliyunOSS", "OSS initWithKey ok!");
         mAuthListener.onAuthFinished(mOSS);
+        OssUtils.oss = mOSS;
     }
 
     /**
@@ -115,6 +117,7 @@ public class AliyunAuthManager {
         mOSS = new OSSClient(mContext, endPoint, credentialProvider, conf);
         Log.d("AliyunOSS", "OSS initWithKey ok!");
         mAuthListener.onAuthFinished(mOSS);
+        OssUtils.oss = mOSS;
     }
 
     /**
@@ -153,5 +156,6 @@ public class AliyunAuthManager {
         mOSS = new OSSClient(mContext, endPoint, credentialProvider, conf);
         Log.d("AliyunOSS", "OSS initWithKey ok!");
         mAuthListener.onAuthFinished(mOSS);
+        OssUtils.oss = mOSS;
     }
 }
